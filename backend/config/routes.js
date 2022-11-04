@@ -10,5 +10,6 @@
 
 module.exports.routes = {
 
+  'POST /youtube/search' : 'youtube/search'
 
 };
