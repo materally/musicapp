@@ -3,10 +3,8 @@ module.exports = {
   description: 'Index library.',
 
   fn: async function (_, exits) {
+    const records = await Library.find();
 
-    // get library from mongo
-
-    // All done.
-    return exits.success({ success: true, data: [] });
+    return exits.success({ success: true, data: records });
   }
 };
