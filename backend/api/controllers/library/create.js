@@ -2,7 +2,7 @@ const ytdl = require('ytdl-core');
 const fs = require('fs');
 
 module.exports = {
-  friendlyName: 'Download youtube  music',
+  friendlyName: 'Create record to library',
   description: 'Download  file (returning a state).',
   inputs: {
     url: {
@@ -14,6 +14,7 @@ module.exports = {
   fn: async function ({ url }, exits) {
     const ID = Date.now();
     const video = await ytdl.getInfo(url);
+    const { title, lengthSeconds } = video.videoDetails;
 
     // download thumbnail
     const imageUrl = video.videoDetails.thumbnails.pop().url;
@@ -24,9 +25,13 @@ module.exports = {
     const audioFile = ID + '.' + format.container;
     ytdl(url, { format }).pipe(fs.createWriteStream('assets/audio/' + audioFile));
 
+    // TODO create record
+
     const data = {
       thumbnailFile,
-      audioFile
+      audioFile,
+      title,
+      lengthSeconds
     }
 
     return exits.success({ message: 'success', data })

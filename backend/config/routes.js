@@ -11,6 +11,8 @@
 module.exports.routes = {
 
   'POST /youtube/search' : 'youtube/search',
-  'POST /youtube/download' : 'youtube/download'
+
+  'GET /library': 'library/index',
+  'POST /library': 'library/create',
 
 };
