@@ -14,7 +14,7 @@ module.exports = {
   fn: async function ({ url }, exits) {
     const ID = Date.now();
     const video = await ytdl.getInfo(url);
-    const { title, lengthSeconds } = video.videoDetails;
+    const { title, lengthSeconds: length } = video.videoDetails;
 
     // download thumbnail
     const imageUrl = video.videoDetails.thumbnails.pop().url;
@@ -26,14 +26,13 @@ module.exports = {
     ytdl(url, { format }).pipe(fs.createWriteStream('assets/audio/' + audioFile));
 
     // TODO create record
-
-    const data = {
-      thumbnailFile,
-      audioFile,
+    const record = await Library.create({
       title,
-      lengthSeconds
-    }
+      length,
+      thumbnail: thumbnailFile.fileName,
+      audio: audioFile
+    }).fetch();
 
-    return exits.success({ message: 'success', data })
+    return exits.success({ message: 'success', data: record })
   }
 };

@@ -12,20 +12,17 @@ module.exports = {
       type: 'string',
       required: true
     },
-    lengthSeconds: {
+    length: {
       type: 'string',
-      required: true,
-      columnName: 'length'
+      required: true
     },
-    thumbnailFile: {
+    thumbnail: {
       type: 'string',
-      required: true,
-      columnName: 'thumbnail'
+      required: true
     },
-    audioFile: {
+    audio: {
       type: 'string',
-      required: true,
-      columnName: 'audio'
+      required: true
     }
   },
 };
