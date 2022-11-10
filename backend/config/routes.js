@@ -15,6 +15,8 @@ module.exports.routes = {
   'GET /library': 'library/index',
   'POST /library': 'library/create',
 
+  'GET /playlist/': 'playlist/index',
+  'GET /playlist/:id': 'playlist/get',
   'POST /playlist/create': 'playlist/create'
 
 };
