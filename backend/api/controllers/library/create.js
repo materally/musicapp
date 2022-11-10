@@ -25,7 +25,6 @@ module.exports = {
     const audioFile = ID + '.' + format.container;
     ytdl(url, { format }).pipe(fs.createWriteStream('assets/audio/' + audioFile));
 
-    // TODO create record
     const record = await Library.create({
       title,
       length,
