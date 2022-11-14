@@ -32,6 +32,6 @@ module.exports = {
       audio: audioFile
     }).fetch();
 
-    return exits.success({ message: 'success', data: record })
+    return exits.success({ success: true, data: record })
   }
 };

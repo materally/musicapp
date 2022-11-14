@@ -22,7 +22,7 @@ module.exports = {
       songs: records
     }).fetch()
 
-    return exits.success({ message: 'success', data: playlist })
+    return exits.success({ success: true, data: playlist })
   }
 
 

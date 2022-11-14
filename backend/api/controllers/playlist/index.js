@@ -5,6 +5,6 @@ module.exports = {
   fn: async function (_, exits) {
     const playlists = await Playlist.find();
 
-    return exits.success({ message: 'success', data: playlists })
+    return exits.success({ success: true, data: playlists })
   }
 };
